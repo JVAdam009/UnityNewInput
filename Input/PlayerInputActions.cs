@@ -25,49 +25,99 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""Player"",
-            ""id"": ""9a1fd5c0-3f65-45df-b843-e39f74c14b41"",
+            ""id"": ""849b3059-8f8a-497d-8544-956c93fb2d1a"",
             ""actions"": [
                 {
-                    ""name"": ""Rotate"",
+                    ""name"": ""Switch"",
                     ""type"": ""Button"",
-                    ""id"": ""eb2d6cec-4237-4251-9cf4-92233e577a27"",
+                    ""id"": ""f79d7c30-834d-44a1-8362-977be352ffbd"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": ""Invert"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""6415f825-5018-44bc-8bc4-e373a4e3ddb6"",
-                    ""path"": ""1DAxis"",
+                    ""name"": """",
+                    ""id"": ""d4cac7dc-bd2f-44e8-9b0e-0f836de055a5"",
+                    ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rotate"",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Driving"",
+            ""id"": ""a895300b-7e46-4571-b118-127f3434fd41"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""4357bd24-11c0-48b4-97ce-01ac063fd73f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""d479689f-9d77-47a2-8879-b4e79853986c"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""2e304ba2-fc6a-47e5-8529-6b4a36d3d196"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""name"": ""up"",
+                    ""id"": ""7755f57a-4ab5-4bdb-a78a-dad26e6d5c78"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rotate"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""5b935b7c-5124-4f40-bcfd-190084909b39"",
+                    ""name"": ""down"",
+                    ""id"": ""5ce29d7a-f05e-4749-8236-c47d92b67ade"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a961ebe5-65cf-4252-a94c-14e116ebf648"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2c3b7ce2-79a7-44b3-b929-5c4682845795"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rotate"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -78,7 +128,10 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
+        m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
+        // Driving
+        m_Driving = asset.FindActionMap("Driving", throwIfNotFound: true);
+        m_Driving_Move = m_Driving.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -138,12 +191,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Rotate;
+    private readonly InputAction m_Player_Switch;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
+        public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -153,22 +206,59 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
-                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
-                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Switch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                @Switch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                @Switch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Rotate.started += instance.OnRotate;
-                @Rotate.performed += instance.OnRotate;
-                @Rotate.canceled += instance.OnRotate;
+                @Switch.started += instance.OnSwitch;
+                @Switch.performed += instance.OnSwitch;
+                @Switch.canceled += instance.OnSwitch;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Driving
+    private readonly InputActionMap m_Driving;
+    private IDrivingActions m_DrivingActionsCallbackInterface;
+    private readonly InputAction m_Driving_Move;
+    public struct DrivingActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public DrivingActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Driving_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Driving; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DrivingActions set) { return set.Get(); }
+        public void SetCallbacks(IDrivingActions instance)
+        {
+            if (m_Wrapper.m_DrivingActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnMove;
+            }
+            m_Wrapper.m_DrivingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+            }
+        }
+    }
+    public DrivingActions @Driving => new DrivingActions(this);
     public interface IPlayerActions
     {
-        void OnRotate(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
+    }
+    public interface IDrivingActions
+    {
+        void OnMove(InputAction.CallbackContext context);
     }
 }
