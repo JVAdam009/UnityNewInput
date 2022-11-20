@@ -25,192 +25,71 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""Player"",
-            ""id"": ""753efaa1-d295-497a-bc86-34ce82af8803"",
+            ""id"": ""bbf1178b-58f6-4d01-82e5-2bc78d9effa8"",
             ""actions"": [
                 {
-                    ""name"": ""Fire"",
-                    ""type"": ""Button"",
-                    ""id"": ""b4bb320c-2c25-4333-bbd0-ffc615c558c6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""ab8d897e-97d2-4416-b4fd-0edb0e744a43"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""87f8de5c-369f-4243-b6ba-85b687801eb2"",
-                    ""path"": ""<Keyboard>/t"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Dog"",
-            ""id"": ""6415f5ab-4189-416b-b6c5-db23a4efe7f9"",
-            ""actions"": [
-                {
-                    ""name"": ""Bark"",
-                    ""type"": ""Button"",
-                    ""id"": ""71eceeaa-cbb9-43f5-b6ae-d7b0f2125351"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Walk"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""0437b365-e550-4ced-ac21-1ee403f9521f"",
+                    ""id"": ""2c08757b-b3ff-47f4-a244-891df0dd6fa2"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Run"",
-                    ""type"": ""Button"",
-                    ""id"": ""7ecf3659-110c-40aa-9c3a-c73db10f637a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold(duration=1)"",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Die"",
-                    ""type"": ""Button"",
-                    ""id"": ""ba5ce198-6fac-4d2b-8f95-37c454b2bdde"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""185c703f-9905-41a3-bf6f-7c1fcee0f777"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Bark"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Move"",
-                    ""id"": ""a235172e-842c-4c05-b638-8259d8ba6085"",
+                    ""name"": ""WASD"",
+                    ""id"": ""9f157f84-7a5c-4993-8780-fb57c15fbfb2"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Walk"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""4f89277a-ddb1-4ec6-b622-e4648ef7e74c"",
+                    ""id"": ""9fc75407-7513-4a37-aa42-ce5d8df2fb02"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Walk"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""7ab379aa-09a3-4527-bccb-6e66ecea421f"",
+                    ""id"": ""01ab6bee-42fb-449f-afb3-db35c82006f7"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Walk"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""14527501-d2e8-439e-b4e9-7d02ae839e4b"",
+                    ""id"": ""7a61650a-e3fc-47fd-90dc-a363e84f69a6"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Walk"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""f5925ea5-1b88-4e19-9238-9e0b439128b2"",
+                    ""id"": ""7b863464-0ebe-483c-b870-07a2f1be7cf2"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""44c8944f-d025-478d-924d-891fc6306ec7"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""76bad748-332e-4cf7-9ca8-b6e586817ea6"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Die"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""b2d1a70b-cfa3-43e1-95f9-fb8229441aef"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Die"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""c9081a86-33a6-4dc4-9e7d-7f4e6078d8d2"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Die"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -221,13 +100,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        // Dog
-        m_Dog = asset.FindActionMap("Dog", throwIfNotFound: true);
-        m_Dog_Bark = m_Dog.FindAction("Bark", throwIfNotFound: true);
-        m_Dog_Walk = m_Dog.FindAction("Walk", throwIfNotFound: true);
-        m_Dog_Run = m_Dog.FindAction("Run", throwIfNotFound: true);
-        m_Dog_Die = m_Dog.FindAction("Die", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -287,12 +160,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_Move;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -302,86 +175,22 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // Dog
-    private readonly InputActionMap m_Dog;
-    private IDogActions m_DogActionsCallbackInterface;
-    private readonly InputAction m_Dog_Bark;
-    private readonly InputAction m_Dog_Walk;
-    private readonly InputAction m_Dog_Run;
-    private readonly InputAction m_Dog_Die;
-    public struct DogActions
-    {
-        private @PlayerInputActions m_Wrapper;
-        public DogActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Bark => m_Wrapper.m_Dog_Bark;
-        public InputAction @Walk => m_Wrapper.m_Dog_Walk;
-        public InputAction @Run => m_Wrapper.m_Dog_Run;
-        public InputAction @Die => m_Wrapper.m_Dog_Die;
-        public InputActionMap Get() { return m_Wrapper.m_Dog; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(DogActions set) { return set.Get(); }
-        public void SetCallbacks(IDogActions instance)
-        {
-            if (m_Wrapper.m_DogActionsCallbackInterface != null)
-            {
-                @Bark.started -= m_Wrapper.m_DogActionsCallbackInterface.OnBark;
-                @Bark.performed -= m_Wrapper.m_DogActionsCallbackInterface.OnBark;
-                @Bark.canceled -= m_Wrapper.m_DogActionsCallbackInterface.OnBark;
-                @Walk.started -= m_Wrapper.m_DogActionsCallbackInterface.OnWalk;
-                @Walk.performed -= m_Wrapper.m_DogActionsCallbackInterface.OnWalk;
-                @Walk.canceled -= m_Wrapper.m_DogActionsCallbackInterface.OnWalk;
-                @Run.started -= m_Wrapper.m_DogActionsCallbackInterface.OnRun;
-                @Run.performed -= m_Wrapper.m_DogActionsCallbackInterface.OnRun;
-                @Run.canceled -= m_Wrapper.m_DogActionsCallbackInterface.OnRun;
-                @Die.started -= m_Wrapper.m_DogActionsCallbackInterface.OnDie;
-                @Die.performed -= m_Wrapper.m_DogActionsCallbackInterface.OnDie;
-                @Die.canceled -= m_Wrapper.m_DogActionsCallbackInterface.OnDie;
-            }
-            m_Wrapper.m_DogActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Bark.started += instance.OnBark;
-                @Bark.performed += instance.OnBark;
-                @Bark.canceled += instance.OnBark;
-                @Walk.started += instance.OnWalk;
-                @Walk.performed += instance.OnWalk;
-                @Walk.canceled += instance.OnWalk;
-                @Run.started += instance.OnRun;
-                @Run.performed += instance.OnRun;
-                @Run.canceled += instance.OnRun;
-                @Die.started += instance.OnDie;
-                @Die.performed += instance.OnDie;
-                @Die.canceled += instance.OnDie;
-            }
-        }
-    }
-    public DogActions @Dog => new DogActions(this);
     public interface IPlayerActions
     {
-        void OnFire(InputAction.CallbackContext context);
-    }
-    public interface IDogActions
-    {
-        void OnBark(InputAction.CallbackContext context);
-        void OnWalk(InputAction.CallbackContext context);
-        void OnRun(InputAction.CallbackContext context);
-        void OnDie(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }
