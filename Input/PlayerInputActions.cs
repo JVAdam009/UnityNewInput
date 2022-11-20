@@ -25,29 +25,51 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""Player"",
-            ""id"": ""3edacfd9-ec8a-451c-b68e-bbe5a0f11547"",
+            ""id"": ""9a1fd5c0-3f65-45df-b843-e39f74c14b41"",
             ""actions"": [
                 {
-                    ""name"": ""RandomColor"",
+                    ""name"": ""Rotate"",
                     ""type"": ""Button"",
-                    ""id"": ""98790f9b-ba19-47e9-8bd8-ca759a0a1742"",
+                    ""id"": ""eb2d6cec-4237-4251-9cf4-92233e577a27"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""9bf3e257-30b3-4716-8e10-d62265014129"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""6415f825-5018-44bc-8bc4-e373a4e3ddb6"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RandomColor"",
-                    ""isComposite"": false,
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""2e304ba2-fc6a-47e5-8529-6b4a36d3d196"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""5b935b7c-5124-4f40-bcfd-190084909b39"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -56,7 +78,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_RandomColor = m_Player.FindAction("RandomColor", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -116,12 +138,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_RandomColor;
+    private readonly InputAction m_Player_Rotate;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @RandomColor => m_Wrapper.m_Player_RandomColor;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -131,22 +153,22 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @RandomColor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRandomColor;
-                @RandomColor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRandomColor;
-                @RandomColor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRandomColor;
+                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @RandomColor.started += instance.OnRandomColor;
-                @RandomColor.performed += instance.OnRandomColor;
-                @RandomColor.canceled += instance.OnRandomColor;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnRandomColor(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 public class Player : MonoBehaviour
 {
     private PlayerInputActions _input;
@@ -13,12 +13,13 @@ public class Player : MonoBehaviour
         _input = new PlayerInputActions();
         _player = _input.Player;
         _player.Enable();
-
-        _player.RandomColor.performed+= ChangeColor;
+        
     }
 
-    private void ChangeColor(InputAction.CallbackContext ctx)
+    // Update is called once per frame
+    void Update()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
+        Vector3 Rotate = new Vector3(0,0 ,_player.Rotate.ReadValue<float>());
+        transform.Rotate(Rotate * (Time.deltaTime * 100));
     }
 }

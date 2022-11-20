@@ -3,29 +3,51 @@
     "maps": [
         {
             "name": "Player",
-            "id": "3edacfd9-ec8a-451c-b68e-bbe5a0f11547",
+            "id": "9a1fd5c0-3f65-45df-b843-e39f74c14b41",
             "actions": [
                 {
-                    "name": "RandomColor",
+                    "name": "Rotate",
                     "type": "Button",
-                    "id": "98790f9b-ba19-47e9-8bd8-ca759a0a1742",
+                    "id": "eb2d6cec-4237-4251-9cf4-92233e577a27",
                     "expectedControlType": "Button",
-                    "processors": "",
+                    "processors": "Invert",
                     "interactions": "",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "9bf3e257-30b3-4716-8e10-d62265014129",
-                    "path": "<Keyboard>/space",
+                    "name": "1D Axis",
+                    "id": "6415f825-5018-44bc-8bc4-e373a4e3ddb6",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RandomColor",
-                    "isComposite": false,
+                    "action": "Rotate",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "2e304ba2-fc6a-47e5-8529-6b4a36d3d196",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5b935b7c-5124-4f40-bcfd-190084909b39",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
