@@ -173,7 +173,7 @@
                 {
                     "name": "modifier",
                     "id": "b2d1a70b-cfa3-43e1-95f9-fb8229441aef",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -184,7 +184,7 @@
                 {
                     "name": "binding",
                     "id": "c9081a86-33a6-4dc4-9e7d-7f4e6078d8d2",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
