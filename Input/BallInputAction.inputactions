@@ -1,0 +1,34 @@
+{
+    "name": "BallInputAction",
+    "maps": [
+        {
+            "name": "Ball",
+            "id": "9921cec4-d6ae-4050-84ef-eec85568963b",
+            "actions": [
+                {
+                    "name": "Bounce",
+                    "type": "Button",
+                    "id": "0981d895-6316-4dfb-8cab-be015a136a4b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "09bb4386-efe1-46b4-89d6-ae0448283232",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Hold(duration=1),Press(behavior=1),Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bounce",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
